@@ -1,20 +1,20 @@
 #include "Set.h"
 #include <assert.h>
 
-/*Funktionen ar fardig*/
+/*Funktionen är färdig*/
 Set initializeSet(void)
 {
 	return createEmptyList();
 }
 
-/* Tips: tank pa att inte lagga till elementet om det redan finns i *set
-   Postcondition: 'element' finns i set (tips: anvand isInSet() for att verifiera) */
+/* Tips: tänk på att inte lägga till elementet om det redan finns i *set
+   Postcondition: 'element' finns i set (tips: använd isInSet() för att verifiera) */
 void addToSet(Set* set, const Data element)
 {
         
 }
 
-/* Postcondition: 'element' finns INTE i set (tips: anvand isInSet() for att verifiera) */
+/* Postcondition: 'element' finns INTE i set (tips: använd isInSet() för att verifiera) */
 void removeFromSet(Set* set, const Data element)
 {
     
@@ -23,10 +23,10 @@ void removeFromSet(Set* set, const Data element)
 
 int isInSet(const Set set, const Data element)
 {
-    return 0; // Ersatt med ratt returvarde
+    return 0; // Ersätt med rätt returvärde
 }
 
-/* Anvands for testning och felsokning */
+/* Används för testning och felsökning */
 void printSet(const Set set, FILE *textfile)
 {
     

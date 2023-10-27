@@ -1,5 +1,5 @@
 /* Laboration 2 - Datastrukturer och Algoritmer */
-/* Lankad lista */
+/* Länkad lista */
 
 #ifndef LIST_H
 #define LIST_H
@@ -8,12 +8,12 @@
 
 /**********************************************************************/
 /*                                                                    */
-/* Bestam om du vill gora en enkellankad eller en dubbellankad lista, */
-/* valj motsvarande struct-definiton nedan.                           */
-/* Oberoende av ditt val sa ser funktionsdeklarationerna likadana ut. */
+/* Bestäm om du vill göra en enkellänkad eller en dubbellänkad lista, */
+/* välj motsvarande struct-definiton nedan.                           */
+/* Oberoende av ditt val så ser funktionsdeklarationerna likadana ut. */
 /*                                                                    */
 /* OBS!                                                               */
-/* Du ska inte andra nagonting i interfacet                           */
+/* Du ska inte ändra någonting i interfacet                           */
 /* Alla funktioner ska implementeras (i list.c)                       */
 /**********************************************************************/
 
@@ -21,7 +21,7 @@
 typedef int Data;
 
 
-/*Valj denna struktdefinition om du vill implementera en dubbellankad lista*/
+/*Välj denna struktdefinition om du vill implementera en dubbellänkad lista*/
 /*struct node
 {
     Data data;
@@ -29,7 +29,7 @@ typedef int Data;
     struct node *previous;
 };*/
 
-/*Valj denna struktdefinition om du vill implementera en enkellankad lista*/
+/*Välj denna struktdefinition om du vill implementera en enkellänkad lista*/
 struct node
 {
     Data data;
@@ -43,38 +43,38 @@ typedef struct node *List;
 List createEmptyList(void);
 
 
-//Ar listan tom?
-//Returnerar 1 om listan ar tom, annars 0
+//Är listan tom?
+//Returnerar 1 om listan är tom, annars 0
 int isEmpty(const List list);
 
-//Lagg till nod forst i listan
+//Lägg till nod först i listan
 void addFirst(List *list, const Data data);
 
-//lagg till nod sist i listan
+//lägg till nod sist i listan
 void addLast(List *list, const Data data);
 
-//Ta bort forsta noden i listan
+//Ta bort första noden i listan
 void removeFirst(List *list);
 
 //ta bort sista noden i listan
 void removeLast(List *list);
 
-//ta bort data ur listan (forsta forekomsten), returnera 0 om datat inte finns, annars 1
+//ta bort data ur listan (första förekomsten), returnera 0 om datat inte finns, annars 1
 int removeElement(List *list, const Data data);
 
-//Sok efter data i listan, returnera 1 om datat finns, annars 0.
+//Sök efter data i listan, returnera 1 om datat finns, annars 0.
 int search(const List list, const Data data);
 
-//returnera hur manga noder som finns i listan
+//returnera hur många noder som finns i listan
 int numberOfNodesInList(const List list);
 
-//tom listan /ta bort allt data (alla noder) ur listan
+//töm listan /ta bort allt data (alla noder) ur listan
 void clearList(List *list);
 
 //Skriv ut listan
 void printList(const List list, FILE *textfile);
 
-//returnera forsta datat i listan
+//returnera första datat i listan
 Data getFirstElement(const List list);
 
 //returnera sista datat i listan

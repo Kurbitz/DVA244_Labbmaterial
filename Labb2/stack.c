@@ -1,7 +1,7 @@
 #include "stack.h"
 #include<assert.h>
 
-/*Funktionen ar fardig*/
+/*Funktionen är färdig*/
 Stack initializeStack(void)
 {
     return createEmptyList();
@@ -9,29 +9,29 @@ Stack initializeStack(void)
 
 int stackIsEmpty(const Stack stack)
 {
-    return 0; // Ersatt denna rad med ratt returvarde
+    return 0; // Ersätt denna rad med rätt returvärde
 }
 
-/* Postcondition 'data' ligger overst p� stacken */
+/* Postcondition 'data' ligger överst på stacken */
 void push(Stack* stack, const Data data)
 {
     
 }
 
-/* Precondition: stacken far inte vara tom */
+/* Precondition: stacken får inte vara tom */
 void pop(Stack* stack)
 {
     
 }
 
-/* Precondition: stacken far inte vara tom */
+/* Precondition: stacken får inte vara tom */
 Data peekStack(const Stack stack)
 {
-     return 0; // Ersatt denna rad med ratt returvarde
+     return 0; // Ersätt denna rad med rätt returvärde
 }
 
-/* Anvands for testning och felsokning
- Tips: det kan vara bra att ocksa notera i urskriften vart toppen pa stacken ar */
+/* Används för testning och felsökning
+ Tips: det kan vara bra att också notera i urskriften vart toppen på stacken är */
 void printStack(const Stack stack, FILE *textFile)
 {
     

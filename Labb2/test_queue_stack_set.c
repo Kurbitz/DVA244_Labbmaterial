@@ -1,5 +1,5 @@
 /*******************************************************************/
-/* Kon, stacken och settet ska implementeras som lankade listor    */
+/* Kön, stacken och settet ska implementeras som länkade listor    */
 /* De olika interfacen hittar du i queue.h, stack.h och set.h      */
 /*******************************************************************/
 
@@ -9,12 +9,12 @@
 #include "stack.h"
 #include "set.h"
 
-/*Gor anrop i main till den meny du vill kora*/
+/*Gör anrop i main till den meny du vill köra*/
 void menuQueue();
 void menuStack();
 void menuSet();
 
-/*Kor dessa testfunktioner for att verifiera att dina ADT:er fungerar som de ska*/
+/*Kör dessa testfunktioner för att verifiera att dina ADT:er fungerar som de ska*/
 void testFunctionQueue();
 void testFunctionStack();
 void testFunctionSet();
