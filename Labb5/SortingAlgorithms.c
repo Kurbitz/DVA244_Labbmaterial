@@ -129,7 +129,7 @@ void printResult(SortingArray sortedArrays[], FILE* file)
 	int i;
 	for (i = 0; i < NUMBER_OF_SIZES; i++)
 	{
-		fprintf(file, "%4d element: ", sortedArrays[i].arraySize);
+		fprintf(file, "%4u element: ", sortedArrays[i].arraySize);
 		printStatistics(&sortedArrays[i].statistics, file);
 		fprintf(file, "\n");
 	}

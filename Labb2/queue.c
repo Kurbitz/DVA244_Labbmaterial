@@ -1,5 +1,5 @@
 #include "queue.h"
-#include<assert.h>
+#include <assert.h>
 
 /*Har ar det viktigt att ateranvanda koden som du redan skrivit for den lankade listan.
   Ateranvandning betyder inte att man kopierar koden eller skriver av den, ateranvander

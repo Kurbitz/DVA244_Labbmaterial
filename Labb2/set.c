@@ -1,4 +1,4 @@
-#include "Set.h"
+#include "set.h"
 #include <assert.h>
 
 /*Funktionen ar fardig*/

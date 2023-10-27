@@ -1,5 +1,5 @@
 #include "stack.h"
-#include<assert.h>
+#include <assert.h>
 
 /*Funktionen ar fardig*/
 Stack initializeStack(void)

@@ -122,7 +122,7 @@ void menu(List head)
                 
             case 12: clearList(&head); break;
                 
-            case 13: printf("\nEnding program");
+            case 13: printf("\nEnding program"); break;
                 
             default: printf("\nWrong input");
         }
