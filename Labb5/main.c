@@ -13,12 +13,12 @@ int main(void)
 {
 	unsigned int i;
 	ElementType* unsortedArray[NUMBER_OF_SIZES], *forwardArray[NUMBER_OF_SIZES], *backwardArray[NUMBER_OF_SIZES];
-	unsigned int sizes[NUMBER_OF_SIZES] = { 10 , 20 , 40 }; /* Andra dessa varden om ni vill andra storlekar pa arrayen*/
+	unsigned int sizes[NUMBER_OF_SIZES] = { 10 , 20 , 40 }; /* Ändra dessa värden om ni vill ändra storlekar på arrayen*/
 	SortingArray forward[NUMBER_OF_SIZES], backward[NUMBER_OF_SIZES], unsorted[NUMBER_OF_SIZES];
 	char filename[] = "result.txt";
 	FILE* file;
 
-	// Skapa osorterade, frammatsorterade samt bakatsorterade arrayer av olika storlekar
+	// Skapa osorterade, frammåtsorterade samt bakåtsorterade arrayer av olika storlekar
 	for (i = 0; i < NUMBER_OF_SIZES; i++)
 	{
 		unsortedArray[i] = createUnsortedArray(sizes[i]);
@@ -44,7 +44,7 @@ int main(void)
 				fprintf(file, "Sorterat: \n");
 				sortAndPrint(forward, algorithm, forwardArray, sizes, file);
 
-				fprintf(file, "Bak�tsorterat: \n");
+				fprintf(file, "Bakåtsorterat: \n");
 				sortAndPrint(backward, algorithm, backwardArray, sizes, file);
 
 				freeArray(unsorted);

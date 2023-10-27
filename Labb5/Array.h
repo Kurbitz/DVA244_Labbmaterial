@@ -6,18 +6,18 @@
 /********************************************************
 
 DVA104, Lab 5, Array.h
-Innehaller funktioner for att hantera dynamiska arrayer.
+Innehåller funktioner för att hantera dynamiska arrayer.
 
 *********************************************************/
 
-#define SEED 245802 // Detta gor att vi far samma osorterade array varje gang, for att vi latt ska kunna jamfora. Man kan andra pa denna till vad som helst om man vill
+#define SEED 245802 // Detta gör att vi får samma osorterade array varje gång, för att vi lätt ska kunna jämföra. Man kan ändra på denna till vad som helst om man vill
 typedef unsigned int ElementType;
 
-// Avgor om "array" ar sorterad eller ej
+// Avgör om "array" är sorterad eller ej
 int isSorted(const ElementType* array, size_t size);
 
 // Skapar arrayer av given storlek och sortering
-// Notera att dessa arrayer ar dynamiskt allokerade och att minnet behover frigoras nar man anvant dem fardigt
+// Notera att dessa arrayer är dynamiskt allokerade och att minnet behover frigöras när man använt dem färdigt
 ElementType* createForwardSortedArray(size_t size);
 ElementType* createBackwardSortedArray(size_t size);
 ElementType* createUnsortedArray(size_t size);

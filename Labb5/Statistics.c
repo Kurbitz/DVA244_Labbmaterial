@@ -17,7 +17,7 @@ void printStatistics(const Statistics* statistics, FILE* file)
 	assert(statistics != NULL);
 	assert(file != NULL);
 
-	fprintf(file, "%5u jämförelser, %5u byten", statistics->comparisons, statistics->swaps);
+	fprintf(file, "%5u jÃ¤mfÃ¶relser, %5u byten", statistics->comparisons, statistics->swaps);
 }
 
 
