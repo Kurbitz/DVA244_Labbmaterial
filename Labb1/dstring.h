@@ -4,26 +4,26 @@
 
 typedef char* DString;
 
-/* Returnerar en strang som innehaller samma text som textstrangen 'str'.
-  Den returnerade strangen ar dynamiskt allokerad (dvs, p� heapen) */
+/* Returnerar en sträng som innehåller samma text som textsträngen 'str'.
+  Den returnerade strängen ar dynamiskt allokerad (dvs, på heapen) */
 DString dstring_initialize(const char* str);
 
-/* Slar ihop originalstrangen med source
-  Returnera 0 om det inte gick att allokera tillrackligt med minne
-  f�r att sla ihop strangarna, annars 1 */
+/* Slår ihop originalsträngen med source
+  Returnera 0 om det inte gick att allokera tillräckligt med minne
+  för att sla ihop strängarna, annars 1 */
 int dstring_concatenate(DString* destination, DString source);
 
-/* Forkortar *destination sa att den innehaller hogst truncatedLength tecken
-  Om 'truncatedLength' ar langre an strangens langd hander ingenting */
+/* Förkortar *destination så att den innehåller högst truncatedLength tecken
+  Om 'truncatedLength' är langre än strängens längd händer ingenting */
 void dstring_truncate(DString* destination, unsigned int truncatedLength);
 
-/* Skriver strangen till en textfil.
-   Textfilen forvantas redan vara oppnad och fortsatter vara oppnad efter anropet */
-/*OBS - det racker att du testar att denna funktion skriver ut i konsollen/skarmen
- Se kommentarer i funktionsdefinitionen for mer information*/
+/* Skriver strängen till en textfil.
+   Textfilen förväntas redan vara öppnad och fortsätter vara öppnad efter anropet */
+/* OBS - det räcker att du testar att denna funktion skriver ut i konsollen/skärmen
+ Se kommentarer i funktionsdefinitionen för mer information*/
 void dstring_print(DString stringToPrint, FILE* textfile);
 
-/* Frigor minnet f�r en dynamisk strang och satter strangen (*stringToDelete) till NULL */
+/* Frigör minnet för en dynamisk sträng och satter strängen (*stringToDelete) till NULL */
 void dstring_delete(DString* stringToDelete);
 
 #endif

@@ -3,37 +3,37 @@
 
 #include "dstring.h"
 
-/* Detta program testar funktionaliteten for ADTn DString */
+/* Detta program testar funktionaliteten för ADTn DString */
 int main(void)
 {
 	DString str1, str2;
 	str1 = dstring_initialize("Department of ");
 	str2 = dstring_initialize("Redundancy ");
-	int resultat = dstring_concatenate(&str1, str2); // Slar ihop str1 och str2 och lagger resultatet i str1. Str1 innehaller nu "Department of Redundancy"
-    assert(resultat == 1); //det gick att allokera minne
+	int resultat = dstring_concatenate(&str1, str2); // Slår ihop str1 och str2 och lägger resultatet i str1. Str1 innehåller nu "Department of Redundancy"
+	assert(resultat == 1);							 // det gick att allokera minne
 
-	/* Om nagon av dessa misslyckas sa ar det nagot fel pa er implementation
-	   Anvand debuggern for att ta reda pa vad */
+	/* Om någon av dessa misslyckas så är det något fel på er implementation
+	   Anvand debuggern för att ta reda på vad */
 
 	assert(str1 != NULL);
 	assert(str2 != NULL);
-	assert(strlen(str2) == 11); 
-	assert(strlen(str1) == 25); // Den sammanslagna strangen ska ha langden 25
+	assert(strlen(str2) == 11);
+	assert(strlen(str1) == 25); // Den sammanslagna strängen ska ha längden 25
 
-	/* Foljande ska skriva ut "Department of Redundancy Department" p� skarmen
-	   stdout ar en textfil som representerar konsollfonstret */
+	/* Foljande ska skriva ut "Department of Redundancy Department" på skärmen
+	   stdout är en textfil som representerar konsollfönstret */
 
-	dstring_print(str1, stdout);	// Skriver ut "Department of Redundancy" 
-	dstring_truncate(&str1, 10);	// Forkortar str1 sa att den bara innehaller de 10 forsta tecknen i strangen, dvs "Department"
-    assert(strlen(str1) == 10);
-    assert(strlen(str2) == 11);
-	dstring_print(str1, stdout);	// Skriver ut "Department"
+	dstring_print(str1, stdout); // Skriver ut "Department of Redundancy"
+	dstring_truncate(&str1, 10); // Förkortar str1 så att den bara innehåller de 10 första tecknen i strängen, dvs "Department"
+	assert(strlen(str1) == 10);
+	assert(strlen(str2) == 11);
+	dstring_print(str1, stdout); // Skriver ut "Department"
 
-	/* Frigor det dynamiskt allokerade minnet for strangarna */
+	/* Frigör det dynamiskt allokerade minnet för strängarna */
 	dstring_delete(&str1);
 	dstring_delete(&str2);
 
-	/* Se till att strangarna blivit nollstallda */
+	/* Se till att strängarna blivit nollställda */
 	assert(str1 == NULL);
 	assert(str2 == NULL);
 	return 0;
