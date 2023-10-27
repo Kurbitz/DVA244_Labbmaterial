@@ -12,13 +12,13 @@ struct treeNode
 
 typedef struct treeNode* BSTree;
 
-/* Skapar ett tomt trad */
+/* Skapar ett tomt träd */
 BSTree emptyTree(void);
 
-/* Returnerar 1 ifall tradet �r tomt, 0 annars */
+/* Returnerar 1 ifall trädet är tomt, 0 annars */
 int isEmpty(const BSTree tree);
 
-/* Satter in 'data' sorterat i *tree */
+/* Sätter in 'data' sorterat i *tree */
 void insertSorted(BSTree* tree, int data);
 
 /* Utskriftsfunktioner*/
@@ -29,22 +29,22 @@ void printPostorder(const BSTree tree, FILE *textfile);
 /* Returnerar 1 om 'data' finns i tree, 0 annars */
 int find(const BSTree tree, int data);
 
-/* Tar bort 'data' fr�n tradet om det finns */
+/* Tar bort 'data' från trädet om det finns */
 void removeElement(BSTree* tree, int data);
 
-/* Returnerar hur manga noder som totalt finns i tradet */
+/* Returnerar hur många noder som totalt finns i trädet */
 int numberOfNodes(const BSTree tree);
 
-/* Returnerar hur djupt tradet ar */
+/* Returnerar hur djupt trädet är */
 int depth(const BSTree tree);
 
-/* Returnerar minimidjupet f�r tradet */
+/* Returnerar minimidjupet för trädet */
 int minDepth(const BSTree tree);
 
-/* Balansera tradet sa att depth(tree) == minDepth(tree) */
+/* Balansera trädet så att depth(tree) == minDepth(tree) */
 void balanceTree(BSTree* tree);
 
-/* Tom tradet och frigor minnet for de olika noderna */
+/* Töm trädet och frigör minnet för de olika noderna */
 void freeTree(BSTree* tree);
 
 #endif
