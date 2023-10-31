@@ -6,33 +6,33 @@
 #include "list.h"    // Din lista inkluderas
 
 /*******************************************************************/
-/* Kon ska implementeras som en lankad lista.                      */
-/* Du ska anv�nda dina listfunktioner aven i kon                   */
-/* Du ska alltsa varken skriva om funktionerna eller kopiera koden */
-/* OBS! Du ska inte andra nagonting i interfacet                   */
+/* Kön ska implementeras som en länkad lista.                      */
+/* Du ska använda dina listfunktioner även i kön                   */
+/* Du ska alltså varken skriva om funktionerna eller kopiera koden */
+/* OBS! Du ska inte ändra någonting i interfacet                   */
 /* Alla funktioner ska implementeras                               */
 /*******************************************************************/
 
 typedef List Queue;  // Ordet 'Queue' kommer att vara din listtyp
 
 
-/* Skapar en ny tom ko */
+/* Skapar en ny tom kö */
 Queue initializeQueue(void);
 
-/* Returnerar 1 om kon �r tom, annars 0 */
+/* Returnerar 1 om kön är tom, annars 0 */
 int queueIsEmpty(const Queue queue);
 
-/* Lagger ett nytt element sist i kon */
+/* Lägger ett nytt element sist i kön */
 void enqueue(Queue* queue, const Data data);
 
-/* Tar bort elementet som ar forst i kon */
+/* Tar bort elementet som är först i kön */
 void dequeue(Queue* queue);
 
-/* Returnerar elementet som ar forst i kon */
+/* Returnerar elementet som är först i kön */
 Data peekQueue(const Queue queue);
 
-/*Skriver ut hela kon
-  Endast till f�r testning och felsokning */
+/*Skriver ut hela kön
+  Endast till för testning och felsökning */
 void printQueue(const Queue queue, FILE *textfile);
 
 

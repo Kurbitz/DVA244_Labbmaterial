@@ -1,11 +1,11 @@
 #include "queue.h"
 #include<assert.h>
 
-/*Har ar det viktigt att ateranvanda koden som du redan skrivit for den lankade listan.
-  Ateranvandning betyder inte att man kopierar koden eller skriver av den, ateranvander
-  gor man genom att anropa redan implementerade funktioner.*/
+/*Här är det viktigt att återanvända koden som du redan skrivit för den länkade listan.
+  Återanvändning betyder inte att man kopierar koden eller skriver av den, återanvänder
+  gör man genom att anropa redan implementerade funktioner.*/
 
-/*Funktionen ar fardig*/
+/*Funktionen är färdig*/
 Queue initializeQueue(void)
 {
     return NULL;
@@ -13,30 +13,30 @@ Queue initializeQueue(void)
 
 int queueIsEmpty(const Queue queue)
 {
-    return 0;	// Ersatt med ratt returvarde
+    return 0;	// Ersätt med rätt returvärde
 }
 
-/*Postcondition: data ar tillagt sist i kon*/
+/*Postcondition: data är tillagt sist i kön*/
 void enqueue(Queue* queue, const Data data)
 {
-   //Tips: Att lagga till i en ko implementerad som en lankad lista ar precis som att lagga till forst eller sist i en lankad lista
+   //Tips: Att lägga till i en kö implementerad som en länkad lista är precis som att lägga till först eller sist i en länkad lista
 }
 
-/* Precondition: kon �r ej tom */
+/* Precondition: kön är ej tom */
 void dequeue(Queue* queue)
 {
-    //Tips: Att ta bort fran en ko implementerad som en lankad lista ar precis som att ta bort sist eller forst i en lankad lista.
+    //Tips: Att ta bort från en kö implementerad som en länkad lista är precis som att ta bort sist eller först i en länkad lista.
 }
 
-/* Precondition: kon �r ej tom */
+/* Precondition: kön är ej tom */
 Data peekQueue(const Queue queue)
 {
-    return 0;	// Ersatt med ratt returvarde
+    return 0;	// Ersätt med rätt returvärde
 }
 
 
-/* Anvands for testning och felsokning
-   Tips: det kan vara bra att ocksa notera i utskriften vart borjan respektive slutet p� kon �r */
+/* Används for testning och felsökning
+   Tips: det kan vara bra att också notera i utskriften vart början respektive slutet på kön är */
 void printQueue(const Queue queue, FILE *textfile)
 {
     

@@ -4,20 +4,20 @@
 #include "list.h"
 #include <assert.h>
 
-/*Denna kan du anvanda for att testa specifika funktioner
- (du far givetvis skriva en egen menyfunktion om du vill det)*/
+/*Denna kan du använda för att testa specifika funktioner
+ (du får givetvis skriva en egen menyfunktion om du vill det)*/
 void menu(List head);
 
-/*Kors programmet felfritt genom denna funktion sa fungerar det som specificerat (observera att utskriften maste testas manuellt.
-  OBS! Innan alla funktioner är implementerade sa kommer exekveringen fastna i olika asserts*/
+/*Körs programmet felfritt genom denna funktion så fungerar det som specificerat (observera att utskriften måste testas manuellt.
+  OBS! Innan alla funktioner är implementerade så kommer exekveringen fastna i olika asserts*/
 void testFunction(List head);
 
 
 int main(void)
 {
-    List head = createEmptyList(); /*head ska hela tiden peka på borjan av din lista, om listan ar tom ska head peka pa NULL */
+    List head = createEmptyList(); /*head ska hela tiden peka på början av din lista, om listan är tom ska head peka på NULL */
     
-    /*Kommentera eller avkommentera beroende pa om det ar menyn eller testfunktionen som ska koras*/
+    /*Kommentera eller avkommentera beroende på om det är menyn eller testfunktionen som ska köras*/
     testFunction(head);
     //menu(head);
     
@@ -29,7 +29,7 @@ void menu(List head)
 {
     int choice;
     Data data;
-    char c; //Anvands endast for att rensa lasbufferten
+    char c; //Används endast för att rensa läsbufferten
     
     do
     {
@@ -51,7 +51,7 @@ void menu(List head)
                "Choice: ");
         
         scanf("%d", &choice);
-        while((c = getchar()) != '\n' && c != EOF); //Rensar lasbufferten
+        while((c = getchar()) != '\n' && c != EOF); //Rensar läsbufferten
         
         switch(choice)
         {
@@ -135,7 +135,7 @@ void testFunction(List head)
 {
     printf("Starting test\n");
     
-    assert(isEmpty(head)); //Listan ska vara tom fran borjan
+    assert(isEmpty(head)); //Listan ska vara tom från början
 
     //Testar addFirst
     addFirst(&head, 6);
@@ -177,7 +177,7 @@ void testFunction(List head)
     assert(getLastElement(head) == 7);
     //listan består nu av 3-4-6-7
     
-    //Testar att ta bort forsta noden med removeElement i befintlig lista
+    //Testar att ta bort första noden med removeElement i befintlig lista
     removeElement(&head, 3);
     assert(numberOfNodesInList(head) == 3);
     assert(getFirstElement(head) == 4);
@@ -194,7 +194,7 @@ void testFunction(List head)
     //testar att ta bort en nod som inte finns med removeElement i en befintlig lista
     assert(removeElement(&head, 5) == 0);
     
-    assert(!isEmpty(head)); //Listan ska inte vara tom (4 och 6 ar kvar i listan)
+    assert(!isEmpty(head)); //Listan ska inte vara tom (4 och 6 är kvar i listan)
     
     //Testar att ta bort ett ensamt element med removeElement
     removeElement(&head, 6);
@@ -223,17 +223,17 @@ void testFunction(List head)
     assert(getLastElement(head) == 5);
     //listan består nu av 2-3-4-5
     
-    //Testar search (mitt i, forst, sist, data som inte finns)
+    //Testar search (mitt i, först, sist, data som inte finns)
     assert(search(head, 4) == 1);
     assert(search(head, 2) == 1);
     assert(search(head, 5) == 1);
     assert(search(head, 7) == 0);
     
-    //Testar att tomma hela listan
+    //Testar att tömma hela listan
     clearList(&head);
     assert(isEmpty(head));
     
-    assert(search(head, 5) == 0);//Testar att soka i en tom lista
+    assert(search(head, 5) == 0);//Testar att söka i en tom lista
     assert(removeElement(&head, 3) == 0); //testar att ta bort från tom lista
     assert(numberOfNodesInList(head) == 0); //testar att räkna noderna i en tom lista
     

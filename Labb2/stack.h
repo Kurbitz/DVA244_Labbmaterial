@@ -7,10 +7,10 @@
 
 
 /*******************************************************************/
-/* Stacken ska implementeras som en lankad lista.                  */
-/* Du ska anvanda dina listfunktioner aven i stacken               */
-/* Du ska alltsa varken skriva om funktionerna eller kopiera koden */
-/* OBS! Du ska inte andra nagonting i interfacet                   */
+/* Stacken ska implementeras som en länkad lista.                  */
+/* Du ska använda dina listfunktioner även i stacken               */
+/* Du ska alltså varken skriva om funktionerna eller kopiera koden */
+/* OBS! Du ska inte ändra någonting i interfacet                   */
 /* Alla funktioner ska implementeras                               */
 /*******************************************************************/
  
@@ -20,20 +20,20 @@ typedef List Stack;     // Ordet 'Stack' kommer att vara din listtyp
 /* Skapar en ny tom stack */
 Stack initializeStack(void);
 
-/* Returnerar 1 om stacken ar tom, annars 0 */
+/* Returnerar 1 om stacken är tom, annars 0 */
 int stackIsEmpty(const Stack stack);
 
-/* Lagger ett element overst p� stacken */
+/* Lägger ett element överst på stacken */
 void push(Stack* pStack, const Data element);
 
-/* Tar bort det oversta elementet fran stacken */
+/* Tar bort det översta elementet från stacken */
 void pop(Stack* pStack);
 
-/* Returnerar det oversta elementet pa stacken */
+/* Returnerar det översta elementet på stacken */
 Data peekStack(const Stack stack);
 
 /*Skriver ut hela stacken
- Endast till for testning och felsokning */
+ Endast till for testning och felsökning */
 void printStack(const Stack stack, FILE *textfile);
 
 
