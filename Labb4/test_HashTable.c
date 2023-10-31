@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS // Behovs i Visual studio for att tillata vissa funktioner
+#define _CRT_SECURE_NO_WARNINGS // Behövs i Visual studio för att tillata vissa funktioner
 #include "HashTable.h"
 
 #include <assert.h>
@@ -10,39 +10,40 @@
 #define SIZE 50
 #define LOOPS 1000
 
-/*Typer f�r att hantera ett dynamiskt antal tabeller - anvands i compareHashTableSizes*/
+/*Typer för att hantera ett dynamiskt antal tabeller - används i compareHashTableSizes*/
 typedef struct{
     HashTable table;
-    int tableSize;
-    int collissions;
+    unsigned int tableSize;
+    unsigned int collissions;
 }Table;
 
 typedef struct{
     Table *Tables;
-    int noOfTables;
+    unsigned int noOfTables;
 }HTables;
 /**********************************************/
 static void fillArrayWithPersons(Person *list);
-static int addPersonsToTable(HashTable *htable, Person *persons);
-static int getTableSize(int nr);
+static unsigned int addPersonsToTable(HashTable *htable, Person *persons);
+static unsigned int getTableSize(int nr);
 
 /*Testfunktioner*/
-void compareHashTableSizes(void);/*Valj hur manga olika hashtabellsstorlekar du vill jamfora. Lagger in samma data i samtliga storlekar och skriver ut antal krockar med respektive storlek*/
-void test(void); /*Testar samtliga funktioner och olika fall f�r hashtabellen.*/
+void compareHashTableSizes(void);/*Välj hur många olika hashtabellsstorlekar du vill jamföra. Lägger in samma data i samtliga storlekar och skriver ut antal krockar med respektive storlek*/
+void test(void); /*Testar samtliga funktioner och olika fall för hashtabellen.*/
 void menu(void); /*A menu to test your functions with manual data och random data*/
+void testFunktionExamination(void);
 
 
 int main(void)
 {
 //    menu();
-    test();
+//    test();
 //    compareHashTableSizes();
 
-	return 0;
+    return 0;
 }
 
 /*********************************************************************************************************/
-/*Funktioner f�r meny, testfunktion och for att jamfora krockar for olika storlekar pa hashtabellen*/
+/*Funktioner för meny, testfunktion och för att jämföra krockar för olika storlekar på hashtabellen*/
 /*********************************************************************************************************/
 
 static void fillArrayWithPersons(Person *list)
@@ -51,9 +52,9 @@ static void fillArrayWithPersons(Person *list)
         list[i] = getRandomPerson();
 }
 
-static int addPersonsToTable(HashTable *htable, Person *persons)
+static unsigned int addPersonsToTable(HashTable *htable, Person *persons)
 {
-    int collissions = 0;
+    unsigned int collissions = 0;
     for(int i = 0; i < SIZE; i++)
     {
         collissions+=insertElement(htable, persons[i].personalNumber, persons[i]);
@@ -62,14 +63,14 @@ static int addPersonsToTable(HashTable *htable, Person *persons)
     return collissions;
 }
 
-static int getTableSize(int nr)
+static unsigned int getTableSize(int nr)
 {
-    int tableSize;
+    unsigned int tableSize;
 
     do
     {
         printf("Size of hashtable %d (at least %d): ", nr, SIZE);
-        scanf("%u", &tableSize); //det ar onskvart att lata storleken vara ett primtal
+        scanf("%u", &tableSize); //det är önskvärt att låta storleken vara ett primtal
     } while (tableSize < SIZE);
 
     return tableSize;
@@ -77,7 +78,7 @@ static int getTableSize(int nr)
 
 
 
-/*Valj hur manga olika hashtabellsstorlekar du vill jamfora. Lagger in samma data i samtliga storlekar och skriver ut antal krockar med respektive storlek*/
+/* Välj hur manga olika hashtabellsstorlekar du vill jämföra. Lägger in samma data i samtliga storlekar och skriver ut antal krockar med respektive storlek*/
 void compareHashTableSizes(void)
 {
     int noOfTables;
@@ -130,10 +131,10 @@ void compareHashTableSizes(void)
 
 
 
-/*Testar samtliga funktioner och olika fall for hashtabellen. Du kan nar som helst lagga till ett anrop till printHashTable(&htable); for att se hur hashtabellen ser ut*/
+/*Testar samtliga funktioner och olika fall för hashtabellen. Du kan när som helst Lägga till ett anrop till printHashTable(&htable); för att se hur hashtabellen ser ut*/
 void test(void)
 {
-    HashTable htable = createHashTable(10); /*En battre storlek for m�ngden 9 ar 13. Denna funktion (test) ar dock endast till for att testa att hashtabellens funktioner implementerats korrekt och %10 �r lattare for gemene man att berakna �n %13.*/
+    HashTable htable = createHashTable(10); /*En bättre storlek för mängden 9 är 13. Denna funktion (test) är dock endast till för att testa att hashtabellens funktioner implementerats korrekt och %10 är lättare för gemene man att berakna än %13.*/
     assert(getSize(&htable) == 10);
     Person arrPersons[9] = {{931014, 81.0, "Tobias"},
                             {881011, 75.0, "Alva"},
@@ -146,9 +147,10 @@ void test(void)
                             {830709, 53.9, "Sara"}};
     Person aPerson;
     const Value *aPersonPointer;
-    int i, collisions = 0;
+    int i;
+    unsigned int collisions = 0;
     
-    //lagg till nagra personer och kontrollera att de ligger pa ratt plats
+    // Lägg till några personer och kontrollera att de ligger på rätt plats
     for(i = 0; i < 9; i++)
     {
         collisions+= insertElement(&htable, arrPersons[i].personalNumber, arrPersons[i]);
@@ -165,7 +167,7 @@ void test(void)
     assert(htable.table[9].key == 510929);
     assert(collisions == 11);
     
-    //lagg till dubblett av key - value ska uppdateras
+    // Lägg till dubblett av key - value ska uppdateras
     strcpy(aPerson.name, "Anna");
     aPerson.personalNumber = 881011;
     aPerson.weight = 65.2;
@@ -173,22 +175,22 @@ void test(void)
     assert(htable.table[1].value.weight == aPerson.weight);
     assert(strcmp(htable.table[1].value.name, aPerson.name) == 0);
     
-    //Soker efter person som ligger p� ratt plats och person som ligger annan plats pga krock
+    // Söker efter person som ligger på rätt plats och person som ligger annan plats pga krock
     aPersonPointer = lookup(&htable, 790408);
     assert(strcmp(aPersonPointer->name, "Nora") == 0);
     aPersonPointer = lookup(&htable, 740318);
     assert(strcmp(aPersonPointer->name, "Emma") == 0);
     
-    //Soker efter person som inte finns i tabellen
+    // Söker efter person som inte finns i tabellen
     assert(lookup(&htable, 600705) == NULL);
     
 
-    //Ta bort en person som inte har nagra efterfoljande
+    // Ta bort en person som inte har några efterfoljande
     deleteElement(&htable, 801204);
     assert(lookup(&htable, 801204) == NULL);
     assert(htable.table[6].key == UNUSED);
     
-    //Ta bort en person som har efterfoljande
+    // Ta bort en person som har efterföljande
     deleteElement(&htable, 790408);
     assert(lookup(&htable, 790408) == NULL);
     assert(htable.table[0].key == 900610);
@@ -202,7 +204,7 @@ void test(void)
     assert(htable.table[8].key == 740318);
     assert(htable.table[9].key == 510929);
     
-    //Tom hela hashtabellen
+    // Töm hela hashtabellen
     deleteElement(&htable, 900610);
     deleteElement(&htable, 881011);
     deleteElement(&htable, 830709);
@@ -221,7 +223,7 @@ void test(void)
     assert(htable.table[8].key == UNUSED);
     assert(htable.table[9].key == UNUSED);
     
-    //Lagg till nagra
+    // Lägg till några
     insertElement(&htable, arrPersons[0].personalNumber, arrPersons[0]);
     assert(htable.table[4].key == 931014);
     insertElement(&htable, arrPersons[1].personalNumber, arrPersons[1]);
@@ -231,7 +233,7 @@ void test(void)
     insertElement(&htable, arrPersons[3].personalNumber, arrPersons[3]);
     assert(htable.table[8].key == 790408);
     
-    //Tom och frigor tabellen
+    // Töm och frigör tabellen
     freeHashTable(&htable);
     assert(htable.size == 0);
     assert(htable.table == NULL);
@@ -242,8 +244,10 @@ void test(void)
 
 void menu(void)
 {
-    int choice, subChoice, size, pNr, collisions = 0;
+    int choice, subChoice, size, pNr;
+    unsigned int collisions = 0;
     HashTable htable;
+    htable.table = NULL;
     Person aPerson;
     const Value *aPersonPointer;
     do{
@@ -268,7 +272,7 @@ void menu(void)
                         while(getchar()!='\n');
                         printf("Enter name: ");
                         fgets(aPerson.name, 28, stdin);
-                        aPerson.name[strlen(aPerson.name)-1] = '\0'; /*ta bort enterslaget som fgets laser in i strangen*/
+                        aPerson.name[strlen(aPerson.name)-1] = '\0'; /*ta bort enterslaget som fgets läser in i strängen*/
                         printf("Enter weight: ");
                         scanf("%f", &aPerson.weight);
                         printf("Enter personal number (YYMMDD): ");
@@ -299,10 +303,13 @@ void menu(void)
                 deleteElement(&htable, pNr);
                 break;
             case 6:
-                printf("Table size: %d\n\n", getSize(&htable));
+                printf("Table size: %u\n\n", getSize(&htable));
                 break;
             case 7:
                 freeHashTable(&htable);
+                break;
+            case 8:
+                printf("Exiting program\n");
                 break;
                 
             default: printf("Invalid input\n");
@@ -311,5 +318,3 @@ void menu(void)
         
     }while(choice != 8);
 }
-
-
