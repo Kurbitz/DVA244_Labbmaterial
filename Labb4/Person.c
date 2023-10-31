@@ -19,7 +19,8 @@ static void getRandomName(char* name)
 
 static int getRandomPersonalNumber(void)
 {
-	int day = rand() % 30 + 1; // For enkelhetens skull antar vi att vaje manad har 30 dagar (blir vissa omojliga datum i februari, men det ar inte viktigt har)
+	// För enkelhetens skull antar vi att varje månad har 30 dagar (blir vissa omöjliga datum i februari, men det är inte viktigt här)
+	int day = rand() % 30 + 1; 
 	int month = rand() % 12 + 1;
 	int year = rand() % 60 + 40;
 	return day + 100 * month + 10000 * year;
