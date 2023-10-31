@@ -1,5 +1,5 @@
 #include "queue.h"
-#include<assert.h>
+#include <assert.h>
 
 /*Här är det viktigt att återanvända koden som du redan skrivit för den länkade listan.
   Återanvändning betyder inte att man kopierar koden eller skriver av den, återanvänder
