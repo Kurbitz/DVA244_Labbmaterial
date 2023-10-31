@@ -4,33 +4,33 @@
 #include "Bucket.h"
 #define UNUSED 0
 
-/*Hashtabell som loser krockar med hjalp av oppen adressering*/
+/*Hashtabell som löser krockar med hjälp av öppen adressering*/
 typedef struct 
 {
-	struct Bucket* table; //Hashtabellen �r en array av Buckets
-	unsigned int size; // Storleken p� Hashtabellen
+	struct Bucket* table; //Hashtabellen är en array av Buckets
+	unsigned int size; // Storleken på Hashtabellen
 } HashTable;
 
-/*Allokerar minne f�r tabellen*/
+/*Allokerar minne för tabellen*/
 HashTable createHashTable(unsigned int size);
 
-/* Satter in paret {key,data} i Hashtabellen, om en nyckel redan finns ska vardet modifieras */
+/* Sätter in paret {key,data} i Hashtabellen, om en nyckel redan finns ska värdet modifieras */
 /* Returnerar antalet krockar*/
 unsigned int insertElement(HashTable* htable, const Key key, const Value value);
 
 /* Tar bort datat med nyckel "key" */
 void deleteElement(HashTable* htable, const Key key);
 
-/* Returnerar en pekare till vardet som key ar associerat med eller NULL om ingen sadan nyckel finns */
+/* Returnerar en pekare till värdet som key är associerat med eller NULL om ingen sådan nyckel finns */
 const Value* lookup(const HashTable* htable, const Key key);
 
-/* Tommer Hashtabellen */
+/* Tömmer Hashtabellen */
 void freeHashTable(HashTable* htable);
 
 /* Ger storleken av Hashtabellen */
 unsigned int getSize(const HashTable* htable);
 
-/* Denna for att ni enkelt ska kunna visualisera en Hashtabell */
+/* Denna för att ni enkelt ska kunna visualisera en Hashtabell */
 void printHashTable(const HashTable* htable); 
 
 #endif
